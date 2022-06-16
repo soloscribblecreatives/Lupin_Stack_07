@@ -10,35 +10,49 @@
   z-index: 1;
 }
 
-.s1_2 {
+.s1_2_wrap {
   position: absolute;
-  left: 47px;
-  top: 59px;
-  width: 930px;
-  height: 56px;
-  animation: fadeInUp 1s;
+  left: 50px;
+  top: 67px;
+  width: 318px;
+  height: 182px;
+  animation: fadeInLeft 1s;
   animation-delay: 0.5s;
   animation-fill-mode: both;
   z-index: 2;
 }
 
-.s1_3_wrap {
+.s1_2 {
   position: absolute;
-  width: 1024px;
-  height: 768px;
-  animation: zoomIn 2s;
-  animation-delay: 1.5s;
+  left: 0px;
+  top: 0px;
+  width: 318px;
+  height: 182px;
+  animation: fadeOutLeft 1s;
+  animation-delay: 3.5s;
   animation-fill-mode: both;
   z-index: 2;
 }
 
 .s1_3 {
   position: absolute;
-  left: 98px;
-  top: 162px;
-  width: 815px;
-  height: 487px;
-  animation: zoomIn 1s;
+  left: 50px;
+  top: 68px;
+  width: 344px;
+  height: 167px;
+  animation: fadeInLeft 1s;
+  animation-delay: 4s;
+  animation-fill-mode: both;
+  z-index: 2;
+}
+
+.s1_4_wrap {
+  position: absolute;
+  left: 331px;
+  top: 581px;
+  width: 545px;
+  height: 71px;
+  animation: flipInX 1s;
   animation-delay: 1.5s;
   animation-fill-mode: both;
   z-index: 2;
@@ -46,24 +60,24 @@
 
 .s1_4 {
   position: absolute;
-  left: 223px;
-  top: 262px;
-  width: 558px;
-  height: 204px;
-  animation: fadeOut 1s;
-  animation-delay: 3s;
+  left: 0px;
+  top: 0px;
+  width: 545px;
+  height: 71px;
+  animation: flipOutX 1s;
+  animation-delay: 5s;
   animation-fill-mode: both;
   z-index: 2;
 }
 
 .s1_5 {
   position: absolute;
-  left: 223px;
-  top: 262px;
-  width: 558px;
-  height: 204px;
-  animation: fadeIn 1s;
-  animation-delay: 3s;
+  left: 282px;
+  top: 581px;
+  width: 644px;
+  height: 72px;
+  animation: flipInX 1s;
+  animation-delay: 5.5s;
   animation-fill-mode: both;
-  z-index: 3;
+  z-index: 2;
 }
