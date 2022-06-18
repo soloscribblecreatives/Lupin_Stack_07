@@ -68,11 +68,37 @@ function touchHandler(e) {
 
 	$(".left_arrow").click(function(event) {
 		go_nav('b');
-	});
+		
+setTimeout(function() {
+	$('.s1_2').css("display","block");
+    $(".s1_2").addClass("s1_2_temp");
+	setTimeout(function() {
+	$('.s1_4').css("display","block");
+    $(".s1_4").addClass("s1_4_temp");
+	setTimeout(function() {
+	$('.animate1').css("display","block");
+}, 1500);
+}, 1500);
+}, 500);
+
+});
 
 	$(".right_arrow").click(function(event) {
 		go_nav('f');
-	});
+		
+setTimeout(function() {
+	$('.s1_2').css("display","block");
+    $(".s1_2").addClass("s1_2_temp");
+	setTimeout(function() {
+	$('.s1_4').css("display","block");
+    $(".s1_4").addClass("s1_4_temp");
+	setTimeout(function() {
+	$('.animate1').css("display","block");
+}, 1500);
+}, 1500);
+}, 500);
+
+});
 
 	$(".slides").click(function(){
 		var slideNum =	$(this).index()+1;
@@ -95,6 +121,18 @@ function touchHandler(e) {
 
 		$("#main_content").swipe({
 	   swipeLeft:function(event, direction, distance, duration, fingerCount) {
+		   
+setTimeout(function() {
+	$('.s1_2').css("display","block");
+    $(".s1_2").addClass("s1_2_temp");
+	setTimeout(function() {
+	$('.s1_4').css("display","block");
+    $(".s1_4").addClass("s1_4_temp");
+	setTimeout(function() {
+	$('.animate1').css("display","block");
+}, 1500);
+}, 1500);
+}, 500);
 		//step 4:-
 		console.log("swipeleft"+localStorage.getItem("currentslide"));
 		localStorage.setItem("previousslide",localStorage.getItem("currentslide"));
@@ -112,6 +150,18 @@ function touchHandler(e) {
 	  },
 
 	  swipeRight:function(event, direction, distance, duration, fingerCount) {
+		  
+setTimeout(function() {
+	$('.s1_2').css("display","block");
+    $(".s1_2").addClass("s1_2_temp");
+	setTimeout(function() {
+	$('.s1_4').css("display","block");
+    $(".s1_4").addClass("s1_4_temp");
+	setTimeout(function() {
+	$('.animate1').css("display","block");
+}, 1500);
+}, 1500);
+}, 500);
 		//step 5:-
 		console.log("swiperight"+localStorage.getItem("currentslide"));
 		localStorage.setItem("previousslide",localStorage.getItem("currentslide"));
@@ -385,10 +435,10 @@ currentSlide();
 var selectedContentPath='';
 switch(pg_id){
 	case 1:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1_1"><img src="slide1/s1_1.png"/></div><div class="s1_2_wrap"><div class="s1_2"><img src="slide1/s1_2.png"/></div></div><div class="s1_3"><img src="slide1/s1_3.png"/></div><div class="s1_4_wrap"><div class="s1_4"><img src="slide1/s1_4.png"/></div></div><div class="s1_5"><img src="slide1/s1_5.png"/></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1_1"><img src="slide1/s1_1.png"/></div><div class="s1_2"><img src="slide1/s1_2.png"/></div><div class="s1_3"><img src="slide1/s1_3.png"/></div><div class="s1_4"><img src="slide1/s1_4.png"/></div><div class="s1_5"><img src="slide1/s1_5.png"/></div><div class="animate1" onclick="animate1()"></div>';
 	break;
 	case 2:
-	content='<link rel="stylesheet" type="text/css" href="slide2/slide2.css" media="screen"/><div class="s2_1"><img src="slide2/s2_1.png"/></div><div class="s2_2"><img src="slide2/s2_2.png"/></div><div class="s2_3"><img src="slide2/s2_3.png"/></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide2/slide2.css" media="screen"/><div class="s2_1"><img src="slide2/s2_1.png"/></div><div class="mock"><div class="s2_2"><img src="slide2/s2_2.png"/></div></div><div class="s2_3"><img src="slide2/s2_3.png"/></div><div class="animate2" onclick="animate2()"></div>';
 	break;
     case 3:
 	content='<link rel="stylesheet" type="text/css" href="slide3/slide3.css" media="screen"/><div class="background"><img src="slide3/1.jpg" width="1024" height="768" alt=""></div>';
@@ -555,4 +605,35 @@ function s6_close1() {
 	$('.s6_5').css("display","none");
 	$('.s6_c1ose1').css("display","none");
 	$('.s6_pop1').css("display","block");
+}
+
+function animate1() {
+	$(".s1_2").removeClass("s1_2_temp");
+	$(".s1_2").addClass("s1_2_wrap");
+	$(".s1_4").removeClass("s1_4_temp");
+	$(".s1_4").addClass("s1_4_wrap");
+	setTimeout(function() {
+		$('.s1_3').css("display","block");
+	}, 500);
+	setTimeout(function() {
+		$('.s1_5').css("display","block");
+	}, 1500);
+}
+
+setTimeout(function() {
+	$('.s1_2').css("display","block");
+    $(".s1_2").addClass("s1_2_temp");
+	setTimeout(function() {
+	$('.s1_4').css("display","block");
+    $(".s1_4").addClass("s1_4_temp");
+	setTimeout(function() {
+	$('.animate1').css("display","block");
+}, 1500);
+}, 1500);
+}, 500);
+
+
+function animate2() {
+	$('.s2_2').css("display","block");
+	$('.s2_3').css("display","block");
 }
