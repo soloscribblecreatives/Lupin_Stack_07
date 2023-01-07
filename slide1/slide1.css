@@ -1,103 +1,47 @@
 * {
-  margin: 0px;
-  padding: 0px;
+	margin: 0px;
+	padding: 0px;
 }
 
-.s1_1 {
-  position: absolute;
-  width: 1024px;
-  height: 768px;
-  z-index: 1;
+.background {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	z-index: 1;
 }
 
-.s1_2_wrap {
+.logo1 {
   position: absolute;
-  left: 50px;
-  top: 67px;
-  width: 318px;
-  height: 182px;
-  animation: fadeOutLeft 1s;
+  left: 452px;
+  top: 448px;
+  width: 449px;
+  height: 62px;
+  animation: fadeInRight 1s;
   animation-delay: 0s;
   animation-fill-mode: both;
   z-index: 2;
 }
 
-.s1_2 {
+.logo2 {
   position: absolute;
-  left: 50px;
-  top: 67px;
-  width: 318px;
-  height: 182px;
-  display: none;
-  z-index: 2;
-}
-
-.s1_2_temp {
-  animation: fadeInLeft 1.5s;
-  animation-delay: 0s;
+  left: 452px;
+  top: 534px;
+  width: 449px;
+  height: 63px;
+  animation: fadeInRight 1s;
+  animation-delay: 1s;
   animation-fill-mode: both;
-  z-index: 2;
+  z-index: 3;
 }
 
-.s1_3 {
+.logo3 {
   position: absolute;
-  left: 50px;
-  top: 68px;
-  width: 344px;
-  height: 167px;
-  animation: fadeInLeft 1.5s;
-  animation-delay: 0s;
+  left: 452px;
+  top: 621px;
+  width: 449px;
+  height: 62px;
+  animation: fadeInRight 1s;
+  animation-delay: 2s;
   animation-fill-mode: both;
-  display: none;
-  z-index: 2;
-}
-
-.s1_4_wrap {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 545px;
-  height: 71px;
-  animation: flipOutX 1s;
-  animation-delay: 0s;
-  animation-fill-mode: both;
-  z-index: 2;
-}
-
-.s1_4 {
-  position: absolute;
-  left: 331px;
-  top: 581px;
-  width: 545px;
-  height: 71px;
-  display: none;
-  z-index: 2;
-}
-
-.s1_4_temp {
-  animation: flipInX 1s;
-  animation-delay: 0s;
-  animation-fill-mode: both;
-  z-index: 2;
-}
-
-.s1_5 {
-  position: absolute;
-  left: 282px;
-  top: 581px;
-  width: 644px;
-  height: 72px;
-  animation: flipInX 1s;
-  animation-delay: 0s;
-  animation-fill-mode: both;
-  display: none;
-  z-index: 2;
-}
-
-.animate1 {
-  position: absolute;
-  width: 1024px;
-  height: 768px;
-  z-index: 50;
-  display: none;
+  z-index: 4;
 }
