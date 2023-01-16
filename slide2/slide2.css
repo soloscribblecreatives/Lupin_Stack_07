@@ -10,38 +10,53 @@
 	z-index: 1;
 }
 
-.logo1 {
-  position: absolute;
-  left: 706px;
-  top: 414px;
-  width: 276px;
+.popup1 {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	z-index: 7;
+	display: none;
+}
+
+.pop_open1 {
+	position: absolute;
+  left: 0px;
+  top: 696px;
+  width: 80px;
   height: 72px;
-  animation: none 1s;
-  animation-delay: 0s;
-  animation-fill-mode: both;
-  z-index: 2;
+	z-index: 5;
 }
 
-.logo2 {
-  position: absolute;
-  left: 706px;
-  top: 513px;
-  width: 284px;
-  height: 24px;
-  animation: fadeInRight 1s;
-  animation-delay: 0s;
-  animation-fill-mode: both;
-  z-index: 3;
+.pop_close1 {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	z-index: 10;
+	display: none;
 }
 
-.logo3 {
-  position: absolute;
-  left: 706px;
-  top: 564px;
-  width: 225px;
-  height: 23px;
-  animation: fadeInRight 1s;
-  animation-delay: 1s;
-  animation-fill-mode: both;
-  z-index: 4;
+
+.popup2 {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	z-index: 7;
+	display: none;
+}
+
+.pop_open2 {
+	position: absolute;
+  left: 60px;
+  top: 696px;
+  width: 60px;
+  height: 72px;
+	z-index: 5;
+}
+
+.pop_close2 {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	z-index: 10;
+	display: none;
 }

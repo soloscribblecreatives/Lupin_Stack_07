@@ -7,41 +7,4 @@
 	position: absolute;
 	width: 1024px;
 	height: 768px;
-	z-index: 1;
-}
-
-.logo1 {
-  position: absolute;
-  left: 452px;
-  top: 448px;
-  width: 449px;
-  height: 62px;
-  animation: fadeInRight 1s;
-  animation-delay: 0s;
-  animation-fill-mode: both;
-  z-index: 2;
-}
-
-.logo2 {
-  position: absolute;
-  left: 452px;
-  top: 534px;
-  width: 449px;
-  height: 63px;
-  animation: fadeInRight 1s;
-  animation-delay: 1s;
-  animation-fill-mode: both;
-  z-index: 3;
-}
-
-.logo3 {
-  position: absolute;
-  left: 452px;
-  top: 621px;
-  width: 449px;
-  height: 62px;
-  animation: fadeInRight 1s;
-  animation-delay: 2s;
-  animation-fill-mode: both;
-  z-index: 4;
 }
