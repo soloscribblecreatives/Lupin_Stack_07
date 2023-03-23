@@ -1,10 +1,50 @@
-* {
+*{
 	margin: 0px;
 	padding: 0px;
 }
 
-.background {
+.s1_1 {
 	position: absolute;
 	width: 1024px;
 	height: 768px;
+	z-index: 1;
+}
+
+.closekol {
+	position: absolute;
+	width: 1024px;
+	height: 100px;
+	display: none;
+	z-index: 9999;
+}
+
+video{
+	position: absolute;
+	z-index: 10;
+	background: white;
+	display: none;
+}
+
+.kol  {
+  position: absolute;
+  left: 441px;
+  top: 637px;
+  width: 169px;
+  height: 92px;
+  animation: pulse 1s infinite;
+  animation-delay: 0s;
+  animation-fill-mode: both;
+  z-index: 2;
+}
+
+.kol2  {
+  position: absolute;
+  left: 753px;
+  top: 643px;
+  width: 204px;
+  height: 58px;
+  animation: pulse 1s infinite;
+  animation-delay: 0s;
+  animation-fill-mode: both;
+  z-index: 2;
 }
