@@ -5,33 +5,7 @@ var startLoc = null;
 var contentName = parseInt(localStorage.getItem("currentbrand"));
 var currentContentId  = parseInt(localStorage.getItem('currentcontent'));
 //ends
-var currentContentNSlide ='';
 
-//custom slides changes begins here....
-
-//alert("++++++++++++"+custcomslideflag1+"+++++++custcomslideid+++++++"+custcomslideid1);
-	if (typeof(localStorage.getItem("currentcustomslideflag"))!='undefined' &&  localStorage.getItem("currentcustomslideflag") =='true'){
-		var custcomslideid1=parseInt(localStorage.getItem("currentcontentcustomslideId"));
-		//step 2:
-
-		currentContentNSlide = currentContentId+"_"+contentName+"_"+custcomslideid1;
-		//step 2 ends here
-		localStorage.setItem("current",currentContentNSlide);
-		localStorage.setItem("currentslide",custcomslideid1);
-
-	}else{
-		//step 3 :
-		currentContentNSlide = currentContentId+"_"+contentName+"_"+'1';
-		//step 3 ends here
-		localStorage.setItem("current",currentContentNSlide);
-		localStorage.setItem("currentslide",'1');
-	}
-	
-//custom slides changes ends here....
-
-/* currentContentNSlide = contentName+"_"+'1';
-localStorage.setItem("current",currentContentNSlide);
-localStorage.setItem("currentslide",'1'); */
 checkClickThrough();
 
 document.getElementById("main_content").addEventListener("touchmove", touchHandler, false);
@@ -95,10 +69,6 @@ function touchHandler(e) {
 
 		$("#main_content").swipe({
 	   swipeLeft:function(event, direction, distance, duration, fingerCount) {
-		//step 4:-
-		console.log("swipeleft"+localStorage.getItem("currentslide"));
-		localStorage.setItem("previousslide",localStorage.getItem("currentslide"));
-		//step 4 ends here
 		//alert("swipeleft");
 		//myconsole("swipeleft");
 		var page_id =  parseInt($("#wrapper").attr("rel"));
@@ -112,10 +82,6 @@ function touchHandler(e) {
 	  },
 
 	  swipeRight:function(event, direction, distance, duration, fingerCount) {
-		//step 5:-
-		console.log("swiperight"+localStorage.getItem("currentslide"));
-		localStorage.setItem("previousslide",localStorage.getItem("currentslide"));
-		//step 5 ends here 
 			//alert("swiperight");
 		//myconsole("swiperight");
 		var page_id =  parseInt($("#wrapper").attr("rel"));
@@ -134,143 +100,19 @@ function touchHandler(e) {
         //Default is 75px, set to 0 for demo so any distance triggers swipe
          threshold:0
 	});
+
+
 });
-
-//step 6:-
-function toCaptureTime(page_id){
-	
-	var currentSlideNo = page_id;
-
-	var startTime = Date.now();
-
-
-	var temp = localStorage.getItem(currentContentId+"_"+contentName+"_slideNo_"+currentSlideNo);
-	
-	if(temp == null){
-		
-		if (currentSlideNo!=0){
-			localStorage.setItem(currentContentId+"_"+contentName+"_slideNo_"+currentSlideNo ,startTime);
-
-			//to capture start time of slide in db format
-			var startTimeInDBFormat = currentTimeInDatabaseFormat();
-			//alert(startTimeInDBFormat);
-
-			localStorage.setItem(currentContentId+"_"+contentName+"_StartTime_"+currentSlideNo ,startTimeInDBFormat);
-		}
-}
-else
-{
-
-var existingTime = localStorage.getItem(currentContentId+"_"+contentName+"_slideNo_"+currentSlideNo);
-var newTime = Date.now();
-var newSlideTime = (newTime - existingTime);
-
-// alert(currentSlideNo + " slide time : " + (newSlideTime/1000) ); // time taken to view that particular slide
-
-//to capture end time of slide in db format
-var endTimeInDBFormat = currentTimeInDatabaseFormat();
-//alert(endTimeInDBFormat);/* 
-/* 
-alert('do calculations and update time====else==_EndTime_======'); */
-
-
-var EndTimeNext = localStorage.getItem(currentContentId+"_"+contentName+"_EndTime_"+currentSlideNo);
-console.log("++++++++EndTimeNext++++++++"+EndTimeNext+"++++++currentContentId+++"+currentContentId+"_"+contentName+"_EndTime_"+currentSlideNo);
-if(EndTimeNext == null){
-	//this time for which the slide was viewed
-
-
-localStorage.setItem(currentContentId+"_"+contentName+"_totalTime_slideNo_"+currentSlideNo ,(newSlideTime/1000) );
-
-
-localStorage.setItem(currentContentId+"_"+contentName+"_EndTime_"+currentSlideNo ,endTimeInDBFormat);
-}
-
-if (typeof(localStorage.getItem('currentslide'))!='undefined' && localStorage.getItem('currentslide')!='' && localStorage.getItem('currentslide')>= currentSlideNo){
-
-
-	var nextSlideNo = currentSlideNo;
-
-}else{
-
-
-	var nextSlideNo = currentSlideNo + 1 ;
-	
- } 
- 
-	if(nextSlideNo <= 6){//number 3 is number of total slides present
-	// alert(nextSlideNo);
-	var tempNext = localStorage.getItem(currentContentId+"_"+contentName+"_slideNo_"+nextSlideNo);
-
-		if(tempNext == null){
-			
-			if (nextSlideNo!=0)	{
-				var nextSlideStartTime =  Date.now();
-				localStorage.setItem(currentContentId+"_"+contentName+"_slideNo_"+nextSlideNo ,nextSlideStartTime);
-				localStorage.setItem(currentContentId+"_"+contentName+"_totalTime_slideNo_"+nextSlideNo ,0);
-
-
-
-				//to capture start time of next slide in db format
-				var startTimeNextInDBFormat = currentTimeInDatabaseFormat();
-				//alert(startTimeNextInDBFormat);
-				/* 
-				alert("+++else++_StartTime_++++currentSlideNo++++"+nextSlideNo); */
-				localStorage.setItem(currentContentId+"_"+contentName+"_StartTime_"+nextSlideNo ,startTimeNextInDBFormat);
-			}
-		}
-	}
-}
-
-}
-//step ends..
 
 
 function go_nav(direction) {
-	//alert("+++++++++go_nav++++++++++"+direction);
-	//alert("+++++++++go_nav++++contentName++++++"+contentName);
-	//go_nav('b');right
-	//go_nav('f');left
-	
-//custom slide changes continues here....
-	
-	if (typeof(localStorage.getItem("currentcustomslideflag"))!='undefined' &&   localStorage.getItem("currentcustomslideflag") =='true'){
-
+var page_id =  parseInt($("#wrapper").attr("rel"));
 			
-				var custcomslideid=parseInt(localStorage.getItem("currentcontentcustomslideId"));
-			
-				
-				var page_id =  custcomslideid;
-		}else{
-			
-				var page_id =  parseInt($("#wrapper").attr("rel"));
-		}	
 		
-//custom slide changes ends here....
-
-	//step 7:-
-	//toCaptureTime(page_id);
-	console.log("swipeleft"+localStorage.getItem("currentslide"));
-	localStorage.setItem("previousslide",localStorage.getItem("currentslide"));
-	//step 7 ends here
-//localStorage.setItem(contentName+"_slideNo_"+currentSlideNo ,n);
 var flag=0;
 if(direction == 'b') {
 
-//custom slide changes continues here....
 
-		//alert("+++++bhitor reee +++++++"+custcomslideflag+"+++++++custcomslideid+++++++"+custcomslideid);
-	if (typeof(localStorage.getItem("currentcustomslideflag"))!='undefined' &&    localStorage.getItem("currentcustomslideflag") =='true'){
-		flag==0
-		localStorage.setItem("gotoNextPrevBrand" ,2);//if one than next if 2 than prev
-		window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
-
-
-	}
-	
-//custom slide changes ends here....
-
-	else{
 	if(page_id >= 0){
 		page_id = page_id - 1;
 		//alert(page_id);
@@ -282,50 +124,88 @@ if(direction == 'b') {
 	 if(flag == 2){
         localStorage.setItem("gotoNextPrevBrand" ,2);//if one than next if 2 than prev
         //flag == 0;
-		window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
+		var objectData={
+
+         "gotoNextPrevBrand": localStorage.getItem("gotoNextPrevBrand"),
+          "previousslide": localStorage.getItem("previousslide"),
+         "slideId": page_id
+         };
+  var params = {
+  "query" : objectData,
+  "type" : "brandNavigation",
+  "callback" : "checkLastPgFn"
+  };
+
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	
+		//window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
     }else{
         localStorage.setItem("gotoNextPrevBrand" ,0);
-    }
+		var objectData={
 
+         "gotoNextPrevBrand": localStorage.getItem("gotoNextPrevBrand"),
+          "previousslide": localStorage.getItem("previousslide"),
+         "slideId": page_id
+         };
+  var params = {
+  "query" : objectData,
+  "type" : "brandNavigation",
+  "callback" : "checkLastPgFn"
+  };
+
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 	}
+	
 }else {
 	
-//custom slide changes continues here....
 
-	if (typeof(localStorage.getItem("currentcustomslideflag"))!='undefined' && localStorage.getItem("currentcustomslideflag") =='true'){
-		flag==0
-		localStorage.setItem("gotoNextPrevBrand" ,1);//if one than next if 2 than prev
-
-		window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
-	}
-	
-//custom slide changes ends here....
-
-	else{
-	if(page_id <= 6){
+	if(page_id <= 3){
 		page_id = page_id + 1;
 		//alert(page_id);
-		if(page_id == 7){
+		if(page_id == 4){
             flag=1;
         }
 	}
 	    if(flag == 1){
         localStorage.setItem("gotoNextPrevBrand" ,1);//if one than next if 2 than prev
          flag == 0;
-		 window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
+		 var objectData={
+
+         "gotoNextPrevBrand": localStorage.getItem("gotoNextPrevBrand"),
+          "previousslide": localStorage.getItem("previousslide"),
+         "slideId": page_id
+         };
+  var params = {
+  "query" : objectData,
+  "type" : "brandNavigation",
+  "callback" : "checkLastPgFn"
+  };
+
+
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+		 //window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
     }else{
         localStorage.setItem("gotoNextPrevBrand" ,0);
+		var objectData={
+
+         "gotoNextPrevBrand": localStorage.getItem("gotoNextPrevBrand"),
+          "previousslide": localStorage.getItem("previousslide"),
+         "slideId": page_id
+         };
+  var params = {
+  "query" : objectData,
+  "type" : "brandNavigation",
+  "callback" : "checkLastPgFn"
+  };
+
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+  
     }
 
-}
+
 }
 
 
-//step 8:
-currentContentNSlide = currentContentId+"_"+contentName+"_"+page_id;
-//step 8 ends here
-localStorage.setItem("current",currentContentNSlide);
-localStorage.setItem("currentslide",page_id);
 
 $("#wrapper").attr("rel",page_id);
 
@@ -337,7 +217,7 @@ var pg_content = set_pg_content(page_id);
 }
 	//console.log("pg : "+page_id);
 	if(page_id==4){
-		$(".box2").click(function(event) {
+		/* $(".box2").click(function(event) {
 			open_page("",5)
 		});
 		$(".box3").click(function(event) {
@@ -357,51 +237,27 @@ var pg_content = set_pg_content(page_id);
 	 	});
 		$(".box8").click(function(event) {
 	 		open_page("",11)
-	 	});
+	 	}); */
 		
 	}
 	 checkClickThrough();
 }
 
 function set_pg_content(pg_id){
-//step 6:-
-//console.log("++++++++pg_id++++"+pg_id+"+++++++currentslide++++++"+localStorage.getItem("currentslide")+"++++++previousslide++++++"+localStorage.getItem("previousslide"));
-		 //check previous slide id end time capture...@bramha..
-		 //check previous slide id end time capture...@bramha..
-	//step 9:
-	if (typeof(localStorage.getItem("previousslide"))!='undefined'){
-		//to checked previous slide has god end time...
-		var previousslideid=localStorage.getItem("previousslide");
-		toCaptureTime(previousslideid);
-		
-	}
-	toCaptureTime(pg_id);
-
-
-	//step 9 ends here..
-//alert("++++++++++set_pg_content++++++++++"+pg_id);
 $(".reference").removeClass("active");
 currentSlide();
 var selectedContentPath='';
 switch(pg_id){
 	case 1:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1_1"><img src="slide1/s1_1.png"/></div><div class="s1_2"><img src="slide1/s1_2.png"/></div><div class="s1_3"><img src="slide1/s1_3.png"/></div><div class="s1_4 pulseUp" onclick="startAnime();"><img src="slide1/s1_4.png"/></div><div class="s1_5"><img src="slide1/s1_5.png"/></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1_1"><img src="slide1/s1_1.png"/></div><div class="s1_2"><img src="slide1/s1_2.png"/></div><div class="s1_3"><img src="slide1/s1_3.png"/></div><div class="s1_4_wrap"><div class="s1_4"><img src="slide1/s1_4.png"/></div></div><div class="s1_5_wrap"><div class="s1_5"><img src="slide1/s1_5.png"/></div></div><div class="s1_6"><img src="slide1/s1_6.png"/></div>';
 	break;
 	case 2:
-	content='<link rel="stylesheet" type="text/css" href="slide2/slide2.css" media="screen"/><div class="background"><img src="slide2/1.jpg" width="1024" height="768" alt=""></div><div class="s2_1"><img src="slide2/2.jpg" width="1024" height="768" alt=""/></div><div class="s2_pop1" onclick="s2_pop1()"></div><div class="s2_2"><img src="slide2/3.jpg" width="1024" height="768" alt=""/></div><div class="s2_pop2" onclick="s2_pop2()"></div><div class="s2_3"><img src="slide2/4.jpg" width="1024" height="768" alt=""/></div><div class="s2_pop3" onclick="s2_pop3()"></div><div class="s2_4"><img src="slide2/5.jpg" width="1024" height="768" alt=""/></div><div class="s2_pop4" onclick="s2_pop4()"></div><div class="s2_c1ose1" onclick="s2_close1()"></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><video width="1024" height="768" controls autoplay><source src="slide2/1.mp4" type="video/mp4"></video>';
 	break;
 	case 3:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide2.css" media="screen"/><div class="background"><img src="slide3/1.jpg" width="1024" height="768" alt=""></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide3/slide3.css" media="screen"/><div class="s3_1"><img src="slide3/s3_1.png"/></div><div class="s3_2"><img src="slide3/s3_2.png"/></div><div class="s3_3"><img src="slide3/s3_3.png"/></div><div class="s3_4"><img src="slide3/s3_4.png"/></div><div class="s3_5"><img src="slide3/s3_5.png"/></div><div class="s3_6"><img src="slide3/s3_6.png"/></div><div class="s3_7"><img src="slide3/s3_7.png"/></div><div class="s3_8"><img src="slide3/s3_8.png"/></div><div class="s3_9"><img src="slide3/s3_9.png"/></div><div class="s3_10"><img src="slide3/s3_10.png"/></div>';
 	break;
-	case 4:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide2.css" media="screen"/><div class="background"><img src="slide4/1.jpg" width="1024" height="768" alt=""></div>';
-	break;
-	case 5:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide2.css" media="screen"/><div class="background"><img src="slide5/1.jpg" width="1024" height="768" alt=""></div>';
-	break;
-	case 6:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide2.css" media="screen"/><div class="background"><img src="slide6/1.jpg" width="1024" height="768" alt=""></div>';
-	break;
+
 }
 
 return content;
@@ -415,22 +271,32 @@ function showDiv2() {
    document.getElementById('welcomeDiv2').style.display = "block";
 }
 
-
 function open_page(url,page_id){
-	 // alert(page_id);
-	//step 10:
-	if (typeof(localStorage.getItem("currentslide"))!='undefined'){
-		//to checked previous slide has god end time...
-		var slideid=localStorage.getItem("currentslide");
-		toCaptureTime(slideid);
-		
-	}
-	
-	// toCaptureTime(page_id);
-	 localStorage.setItem("currentslide",page_id);
-	 currentContentNSlide = currentContentId+"_"+contentName+"_"+page_id;
-	 localStorage.setItem("current",currentContentNSlide);
-	//step 10 ends here
+	 //alert("===openpage====");
+	localStorage.getItem('currentbrand');
+    localStorage.getItem('currentcontent');
+    localStorage.getItem('currentcontentbrandId');
+    localStorage.getItem('current');
+	localStorage.setItem("gotoNextPrevBrand" ,0);
+	//alert("====currentbrand======"+localStorage.getItem('currentbrand'));
+	//alert("====currentcontent======"+localStorage.getItem('currentcontent'));
+	//alert("====currentcontentbrandId======"+localStorage.getItem('currentcontentbrandId'));
+	//alert("====current======"+localStorage.getItem('current'));
+	//alert("====previousslide======"+localStorage.getItem("previousslide"));
+	//alert("====page_id======"+page_id);
+		var objectData={
+
+         "gotoNextPrevBrand": localStorage.getItem("gotoNextPrevBrand"),
+          "previousslide": localStorage.getItem("previousslide"),
+         "slideId": page_id
+         };
+  var params = {
+  "query" : objectData,
+  "type" : "brandNavigation",
+  "callback" : "checkLastPgFn"
+  };
+
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 
 	 $("#wrapper").attr("rel",page_id);
 	 var content="";
@@ -475,7 +341,6 @@ function open_page(url,page_id){
     if(currentslide == 2){
 	document.getElementById("click_through").innerHTML='';
 		}
-
 	}
 
 	function checkBtns(refNum){
@@ -532,6 +397,8 @@ function currentTimeInDatabaseFormat(){//to get current time in dd-mm-yyyy hh:mm
 	return duration;
 }
 
+// new js
+
 $(document).ready(function(){
 	$('body').on('click','.touchbtn',function(){
 		$('.right_arrow').trigger( "click" );
@@ -542,64 +409,3 @@ $(document).ready(function(){
 		$('.touchbtn').css("display","block");
 	})
 })
-
-
-//----------------------------------//
-
-function pop_open() {
-	$('.popup').css('display','block');
-	$('.pop_open').css('display','none');
-	$('.pop_close').css('display','block');
-}
-
-function pop_close() {
-	$('.popup').css('display','none');
-	$('.pop_open').css('display','block');
-	$('.pop_close').css('display','none');
-}
-
-/*--------------------- animation javascript -----------------------*/
-
-function s2_pop1() {
-	$('.s2_1').css("display","block");
-	$('.s2_c1ose1').css("display","block");
-	$('.s2_pop1').css("display","none");
-}
-
-function s2_pop2() {
-	$('.s2_2').css("display","block");
-	$('.s2_c1ose1').css("display","block");
-	$('.s2_pop2').css("display","none");
-}
-
-function s2_pop3() {
-	$('.s2_3').css("display","block");
-	$('.s2_c1ose1').css("display","block");
-	$('.s2_pop3').css("display","none");
-}
-
-function s2_pop4() {
-	$('.s2_4').css("display","block");
-	$('.s2_c1ose1').css("display","block");
-	$('.s2_pop4').css("display","none");
-}
-
-function s2_close1() {
-	$('.s2_1').css("display","none");
-	$('.s2_2').css("display","none");
-	$('.s2_3').css("display","none");
-	$('.s2_4').css("display","none");
-	$('.s2_c1ose1').css("display","none");
-	$('.s2_pop1').css("display","block");
-	$('.s2_pop2').css("display","block");
-	$('.s2_pop3').css("display","block");
-	$('.s2_pop4').css("display","block");
-}
-
-
-function startAnime() {
-	$('.s1_2').css("display","block");
-	$('.s1_4').removeClass("pulseUp");
-	$('.s1_4').addClass("shiftLeft");
-	$('.s1_5').css("display","block");
-}

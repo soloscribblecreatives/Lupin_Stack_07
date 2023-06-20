@@ -1,0 +1,151 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.s2_1 {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	z-index: 1;
+}
+
+.s2_2 {
+	position: absolute;
+  left: 101px;
+  top: 114px;
+  width: 506px;
+  height: 307px;
+	animation: zoomIn 0.5s;
+	animation-delay: 0s;
+	animation-fill-mode: both;
+	z-index: 2;
+}
+
+.s2_3 {
+	position: absolute;
+  left: 607px;
+  top: 70px;
+  width: 201px;
+  height: 270px;
+	animation: bounceIn 0.3s;
+	animation-delay: 0.6s;
+	animation-fill-mode: both;
+	z-index: 3;
+}
+
+.s2_4 {
+	position: absolute;
+  left: 719px;
+  top: 274px;
+  width: 201px;
+  height: 270px;
+	animation: bounceIn 0.3s;
+	animation-delay: 0.9s;
+	animation-fill-mode: both;
+	z-index: 4;
+}
+
+.s2_5 {
+	position: absolute;
+  left: 607px;
+  top: 475px;
+  width: 201px;
+  height: 270px;
+	animation: bounceIn 0.3s;
+	animation-delay: 1.2s;
+	animation-fill-mode: both;
+	z-index: 5;
+}
+
+.s2_6 {
+	position: absolute;
+  left: 81px;
+  top: 547px;
+  width: 310px;
+  height: 119px;
+	animation: rollIn 0.5s;
+	animation-delay: 1.8s;
+	animation-fill-mode: both;
+	z-index: 3;
+}
+
+.s2_7 {
+	position: absolute;
+	left: 707px;
+	top: 592px;
+	width: 49px;
+	height: 59px;
+	animation: flash 4s infinite;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+	z-index: 3;
+}
+
+.s2_8 {
+	position: absolute;
+	left: 46px;
+	top: 476px;
+	width: 49px;
+	height: 59px;
+	animation: flash 4s infinite;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+	z-index: 3;
+}
+
+.s2_9 {
+	position: absolute;
+	left: 707px;
+	top: 476px;
+	width: 49px;
+	height: 59px;
+	animation: flash 4s infinite;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+	z-index: 3;
+}
+
+.s2_pop1 {
+	position: absolute;
+	left: 56px;
+	top: 452px;
+	width: 331px;
+	height: 106px;
+	z-index: 8;
+}
+
+.s2_pop2 {
+	position: absolute;
+	left: 394px;
+	top: 452px;
+	width: 331px;
+	height: 106px;
+	z-index: 8;
+}
+
+.s2_pop3 {
+	position: absolute;
+	left: 56px;
+	top: 565px;
+	width: 331px;
+	height: 106px;
+	z-index: 8;
+}
+
+.s2_pop4 {
+	position: absolute;
+	left: 394px;
+	top: 565px;
+	width: 331px;
+	height: 106px;
+	z-index: 8;
+}
+
+.s2_c1ose1 {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	display: none;
+	z-index: 12;
+}
