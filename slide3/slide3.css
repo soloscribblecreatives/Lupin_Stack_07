@@ -19,7 +19,7 @@
 	animation: pulse 1s infinite;
 	animation-delay: 1.7s;
 	animation-fill-mode: both;
-	z-index: 4;
+	z-index: 2;
 }
 
 .s3_2 {
@@ -31,7 +31,7 @@
 	animation: bounceIn 0.3s;
 	animation-delay: 0s;
 	animation-fill-mode: both;
-	z-index: 4;
+	z-index: 2;
 }
 
 .s3_3 {
@@ -43,7 +43,7 @@
 	animation: fadeInDown 0.5s;
 	animation-delay: 0.4s;
 	animation-fill-mode: both;
-	z-index: 3;
+	z-index: 4;
 }
 
 .s3_4 {
@@ -55,7 +55,7 @@
 	animation: fadeInRight 0.5s;
 	animation-delay: 0.5s;
 	animation-fill-mode: both;
-	z-index: 2;
+	z-index: 4;
 }
 
 .s3_5 {
@@ -67,7 +67,7 @@
 	animation: fadeInRight 0.5s;
 	animation-delay: 0.6s;
 	animation-fill-mode: both;
-	z-index: 2;
+	z-index: 4;
 }
 
 .s3_6 {
@@ -79,7 +79,7 @@
 	animation: fadeInRight 0.5s;
 	animation-delay: 0.7s;
 	animation-fill-mode: both;
-	z-index: 2;
+	z-index: 4;
 }
 
 .s3_7 {
@@ -91,7 +91,7 @@
 	animation: fadeInLeft 0.5s;
 	animation-delay: 0.8s;
 	animation-fill-mode: both;
-	z-index: 2;
+	z-index: 4;
 }
 
 .s3_8 {
@@ -103,8 +103,7 @@
 	animation: fadeInLeft 0.5s;
 	animation-delay: 0.9s;
 	animation-fill-mode: both;
-	opacity: 0;
-	z-index: 2;
+	z-index: 4;
 }
 
 .s3_9 {
@@ -116,7 +115,7 @@
     animation: fadeInLeft 0.5s;
 	animation-delay: 1.1s;
 	animation-fill-mode: both;
-	z-index: 10;
+	z-index: 4;
 }
 
 .s3_10 {
