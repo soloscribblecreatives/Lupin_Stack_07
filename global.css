@@ -109,6 +109,7 @@ html[xmlns] .clearfix {
 	position: relative;
 	top: 380px;
 	opacity: .8;
+	display: block;
 	z-index: 999;
 	visibility: visible;
 }
@@ -159,7 +160,6 @@ html[xmlns] .clearfix {
 	-webkit-transition: bottom 5s, -webkit-transform 2s;
 	transition: bottom 1s, -webkit-transform 2s;
 	visibility: visible;
-	display: none;
 	z-index: 999;
 }
 .slide_jumper {
@@ -209,7 +209,6 @@ html[xmlns] .clearfix {
 	-webkit-transition: bottom 1s, -webkit-transform 2s;
 	transition: bottom 1s, -webkit-transform 2s;
 	visibility: visible;
-	display: none;
 	z-index: 999;
 }
 .reference.active {
@@ -237,19 +236,4 @@ html[xmlns] .clearfix {
 	border: 1px solid red;
 	background-color: rgba(0,0,0,0.5);
 	color: #ffffff;
-}
-
-.blocker {
-  position: absolute;
-  width: 1024px;
-  height: 768px;
-  z-index: 40;
-}
-
-.clicker {
-  position: absolute;
-  width: 1024px;
-  height: 768px;
-  border: 10px solid red;
-  z-index: 40;
 }
