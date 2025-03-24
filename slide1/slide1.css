@@ -16,7 +16,7 @@
   top: 53px;
   width: 238px;
   height: 621px;
-	animation: revealVerticalUp1 1s infinite ease-out;
+	animation: revealVerticalUp1 0.3s;
 	animation-delay: 3s;
 	animation-fill-mode: both;
 	clip: rect(625px,250px,625px,0px);

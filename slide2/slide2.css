@@ -16,7 +16,7 @@
   top: 53px;
   width: 238px;
   height: 621px;
-	animation: revealVerticalUp1 1s infinite ease-out;
+	animation: revealVerticalUp1 0.3s;
 	animation-delay: 3s;
 	animation-fill-mode: both;
 	clip: rect(625px,250px,625px,0px);
@@ -118,17 +118,38 @@
 	z-index: 5;
 }
 
-.s8 {
+.s8w {
 	position: absolute;
   left: 584px;
   top: 189px;
   width: 80px;
   height: 79px;
-	animation: zoomIn 0.5s;
+	animation: zoomIn 1s;
 	animation-delay: 2.1s;
 	animation-fill-mode: both;
 	transform-origin: bottom;
 	z-index: 5;
+}
+
+.s8 {
+	position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 80px;
+  height: 79px;
+	animation: rotateInLoop 8s linear infinite;
+	animation-delay: 2.1s;
+	animation-fill-mode: both;
+	z-index: 5;
+}
+
+@keyframes rotateInLoop {
+	0%  {
+		-webkit-transform: rotate(0deg);
+	}
+	100%	{
+		-webkit-transform: rotate(359deg);
+	}
 }
 
 .s9 {
@@ -142,4 +163,27 @@
 	animation-fill-mode: both;
 	transform-origin: top;
 	z-index: 5;
+}
+
+.s10 {
+	position: absolute;
+  left: 512px;
+  top: 531px;
+  width: 44px;
+  height: 35px;
+	animation: flashLongOn 3s infinite;
+	animation-delay: 3.5s;
+	animation-fill-mode: both;
+	transform-origin: top;
+	z-index: 5;
+}
+
+@keyframes flashLongOn {
+  0%, 50%, 100% {
+    opacity: 0;
+  }
+
+  25%, 75% {
+    opacity: 1;
+  }
 }
