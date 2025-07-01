@@ -159,10 +159,10 @@ if(direction == 'b') {
 }else {
 	
 
-	if(page_id <= 2){
+	if(page_id <= 4){
 		page_id = page_id + 1;
 		//alert(page_id);
-		if(page_id == 3){
+		if(page_id == 5){
             flag=1;
         }
 	}
@@ -249,10 +249,16 @@ currentSlide();
 var selectedContentPath='';
 switch(pg_id){
 	case 1:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1"><img src="slide1/s1.png" width="1024" height="768" alt=""/></div><div class="s2"><img src="slide1/s2.gif"/></div><div class="s3"><img src="slide1/s3.png"/></div><div class="s4"><img src="slide1/s4.png"/></div><div class="s5"><img src="slide1/s5.png"/></div><div class="s6"><img src="slide1/s6.png"/></div><div class="s7"><img src="slide1/s7.png"/></div><div class="s8"><img src="slide1/s8.png"/></div><div class="s9"><img src="slide1/s9.png"/></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1"><img src="slide1/s1.png" width="1024" height="768" alt=""/></div><div class="s2"><img src="slide1/s2.gif"/></div><div class="s3"><img src="slide1/s3.png"/></div><div class="s4"><img src="slide1/s4.png"/></div><div class="s5"><img src="slide1/s5.png"/></div><div class="s6"><img src="slide1/s6.png"/></div><div class="s7"><img src="slide1/s7.png"/></div><div class="s8"><img src="slide1/s8.png"/></div><div class="s9"><img src="slide1/s9.png"/></div><div class="s10"><img src="slide1/s10.png"/></div>';
 	break;
 	case 2:
-	content='<link rel="stylesheet" type="text/css" href="slide2/slide2.css" media="screen"/><div class="s1"><img src="slide2/s1.png" width="1024" height="768" alt=""/></div><div class="s2"><img src="slide2/s2.gif"/></div><div class="s3"><img src="slide2/s3.png"/></div><div class="s4"><img src="slide2/s4.png"/></div><div class="s5"><img src="slide2/s5.gif"/></div><div class="s6"><img src="slide2/s6.png"/></div><div class="s7"><img src="slide2/s7.png"/></div><div class="s8w"><div class="s8"><img src="slide2/s8.png"/></div></div><div class="s9"><img src="slide2/s9.png"/></div><div class="s10"><img src="slide2/s10.png"/></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide2/slide2.css" media="screen"/><div class="s1"><img src="slide2/s1.png" width="1024" height="768" alt=""/></div><div class="s2"><img src="slide2/s2.png"/></div><div class="s3"><img src="slide2/s3.png"/></div><div class="s4"><img src="slide2/s4.gif"/></div><div class="s5"><img src="slide2/s5.png"/></div><div class="s6"><img src="slide2/s6.png"/></div><div class="s7"><img src="slide2/s7.png"/></div><div class="kol" onclick="kol();"></div><div class="vid"><img src="slide2/close.png"/></div><video id="myVideo" width="985" height="554" src="slide2/vid.mp4" controls></video><div class="closekol" onclick="closekol();"></div>';
+	break;
+	case 3:
+	content='<link rel="stylesheet" type="text/css" href="slide3/slide3.css" media="screen"/><div class="s1"><img src="slide3/s1.png" width="1024" height="768" alt=""/></div><div class="s2"><img src="slide3/s2.gif"/></div><div class="s3"><img src="slide3/s3.png"/></div><div class="s4"><img src="slide3/s4.png"/></div><div class="s5"><img src="slide3/s5.gif"/></div><div class="s6"><img src="slide3/s6.png"/></div><div class="s7"><img src="slide3/s7.png"/></div><div class="s8w"><div class="s8"><img src="slide3/s8.png"/></div></div><div class="s9"><img src="slide3/s9.png"/></div><div class="s10"><img src="slide3/s10.png"/></div><div class="s11"><img src="slide3/s11.png"/></div>';
+	break;
+	case 4:
+	content='<link rel="stylesheet" type="text/css" href="slide4/slide4.css" media="screen"/><div class="s1"><img src="slide4/s1.png" width="1024" height="768" alt=""/></div><video id="myVideo" width="1024" height="768" controls autoplay><source src="slide4/vid.mp4" type="video/mp4"></video>';
 	break;
 }
 
@@ -405,3 +411,21 @@ $(document).ready(function(){
 		$('.touchbtn').css("display","block");
 	})
 })
+
+/*--------------------- animation javascript -----------------------*/
+
+function kol() {
+	$('#myVideo').css("display","block");
+	$('.vid').css("display","block");
+	$('.closekol').css("display","block");
+	document.getElementById("myVideo").play();
+}
+
+function closekol() {
+	$('#myVideo').css("display","none");
+	$('.vid').css("display","none");
+	$('.closekol').css("display","none");
+	var vid = document.getElementById("myVideo");
+	vid.pause();
+	vid.currentTime = 0;
+}

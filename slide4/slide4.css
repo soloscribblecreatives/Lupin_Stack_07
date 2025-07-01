@@ -1,0 +1,22 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.s1 {
+	position: absolute;
+	width: 1024px;
+	height: 768px;
+	z-index: 1;
+}
+
+#myVideo {
+	position: absolute;	
+    left: 98px;
+    top: 236px;
+    width: 829px;
+    height: 466px;
+	border: 2px solid white;
+	border-radius: 20px;
+	z-index: 15;
+}
