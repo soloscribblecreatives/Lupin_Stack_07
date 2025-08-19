@@ -3,140 +3,96 @@
 	padding: 0px;
 }
 
+@font-face {
+	font-family: "RobotoAlert";
+    src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+}
+
 .s1 {
 	position: absolute;
-	width: 1024px;
-	height: 768px;
+	width: 1080px;
+	height: 810px;
 	z-index: 1;
 }
 
-.s2 {
-	position: absolute;
-  left: 0px;
-  top: 53px;
-  width: 238px;
-  height: 621px;
-	animation: revealVerticalUp1 0.3s;
-	animation-delay: 3s;
-	animation-fill-mode: both;
-	clip: rect(625px,250px,625px,0px);
-	z-index: 5;
+.submit {
+  position: absolute;
+  left: 390px;
+  top: 664px;
+  width: 300px;
+  height: 113px;
+  z-index: 20;
 }
 
-@keyframes revealVerticalUp1 {
-  0% {
-    clip: rect(625px,250px,625px,0px);
-  }
-  
-  100% {
-    clip: rect(0px,250px,625px,0px);
-  }
+@font-face {
+	font-family: "ArialAlert";
+    src: url("../fonts/arial-bold-italic.ttf") format("truetype");
 }
 
-.s3 {
-	position: absolute;
-  left: 25px;
-  top: 180px;
-  width: 587px;
-  height: 568px;
-	animation: revealVerticalUp2 0.7s;
-	animation-delay: 0.2s;
-	animation-fill-mode: both;
-	clip: rect(600px,650px,600px,0px);
-	z-index: 7;
+#dataAlert {
+    position: absolute;
+    left: 0px;
+	top: 410px;
+    width: 1080px;
+    height: 40px;
+    color: red;
+	font-family: "ArialAlert";
+	font-size: 1.5em;
+    font-weight: 700;
+	text-align: center;
+	z-index: 10;
 }
 
-@keyframes revealVerticalUp2 {
-  0% {
-    clip: rect(600px,650px,600px,0px);
-  }
-  
-  100% {
-    clip: rect(0px,650px,600px,0px);
-  }
+#dd {
+    position: absolute;
+	left: 382px;
+	top: 482px;
+	width: 85px;
+	height: 81px;
+    color: #6e6e6e;
+	background: transparent;
+	font-family: "RobotoAlert";
+	font-size: 60px;
+    font-weight: bold;
+	text-align: center;
+	overflow: visible;
+	border: none;
+	outline: none;
+	z-index: 10;
 }
 
-.s4 {
-	position: absolute;
-  left: 614px;
-  top: 50px;
-  width: 384px;
-  height: 168px;
-	animation: zoomIn 0.5s;
-	animation-delay: 1s;
-	animation-fill-mode: both;
-	transform-origin: bottom;
-	z-index: 5;
+#mm {
+    position: absolute;
+	left: 500px;
+	top: 482px;
+	width: 85px;
+	height: 81px;
+    color: #6e6e6e;
+	background: transparent;
+	font-family: "RobotoAlert";
+	font-size: 60px;
+    font-weight: bold;
+	text-align: center;
+	overflow: visible;
+	border: none;
+	outline: none;
+	z-index: 10;
 }
 
-.s5 {
-	position: absolute;
-  left: 652px;
-  top: 287px;
-  width: 307px;
-  height: 47px;
-	animation: fadeInUp 0.5s;
-	animation-delay: 1.5s;
-	animation-fill-mode: both;
-	z-index: 5;
-}
-
-.s6 {
-	position: absolute;
-  left: 661px;
-  top: 350px;
-  width: 289px;
-  height: 46px;
-	animation: fadeInUp 0.5s;
-	animation-delay: 1.7s;
-	animation-fill-mode: both;
-	z-index: 5;
-}
-
-.s7 {
-	position: absolute;
-  left: 661px;
-  top: 411px;
-  width: 289px;
-  height: 47px;
-	animation: fadeInUp 0.5s;
-	animation-delay: 1.9s;
-	animation-fill-mode: both;
-	z-index: 5;
-}
-
-.s8 {
-	position: absolute;
-  left: 745px;
-  top: 473px;
-  width: 120px;
-  height: 31px;
-	animation: fadeInUp 0.5s;
-	animation-delay: 2.1s;
-	animation-fill-mode: both;
-	z-index: 5;
-}
-
-.s9 {
-	position: absolute;
-  left: 645px;
-  top: 557px;
-  width: 339px;
-  height: 159px;
-	animation: zoomIn 0.5s;
-	animation-delay: 2.6s;
-	animation-fill-mode: both;
-	z-index: 5;
-}
-
-.s10 {
-	position: absolute;
-  left: 0px;
-  top: 708px;
-  width: 1024px;
-  height: 60px;
-	animation: none 0.5s;
-	animation-delay: 2.6s;
-	animation-fill-mode: both;
+#yy {
+    position: absolute;
+	left: 618px;
+	top: 482px;
+	width: 85px;
+	height: 81px;
+    color: #6e6e6e;
+	background: transparent;
+	font-family: "RobotoAlert";
+	font-size: 60px;
+    font-weight: bold;
+	text-align: center;
+	overflow: visible;
+	border: none;
+	outline: none;
 	z-index: 10;
 }
