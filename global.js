@@ -670,4 +670,5 @@ function myFunc() {
 	setTimeout(function(){
 		go_nav('f');
 	}, 2000);
+	$('.goLeft, .goRight, .slide_arrow').css('display','block');
 }
