@@ -1,98 +1,85 @@
-*{
+* {
 	margin: 0px;
 	padding: 0px;
 }
 
-@font-face {
-	font-family: "RobotoAlert";
-    src: url("../fonts/Roboto-Bold.ttf") format("truetype");
-}
-
-.s1 {
+.background, .s1 {
 	position: absolute;
 	width: 1080px;
 	height: 810px;
 	z-index: 1;
 }
 
-.submit {
+.hand {
   position: absolute;
-  left: 390px;
-  top: 664px;
-  width: 300px;
-  height: 113px;
-  z-index: 20;
+  left: 248px;
+  top: 488px;
+  width: 52px;
+  height: 67px;
+  	animation: scratchIt 1s;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+  z-index: 15;
 }
 
-@font-face {
-	font-family: "ArialAlert";
-    src: url("../fonts/arial-bold-italic.ttf") format("truetype");
+.blocker {
+	position: absolute;
+	left: 0px;
+    top: 0px;
+	width: 1080px;
+	height: 810px;
+	z-index: 5;
 }
-
-#dataAlert {
+    
+.canvas-wrapper {
     position: absolute;
-    left: 0px;
-	top: 410px;
-    width: 1080px;
-    height: 40px;
-    color: red;
-	font-family: "ArialAlert";
-	font-size: 1.5em;
-    font-weight: 700;
-	text-align: center;
+  left: 199px;
+  top: 411px;
+  width: 699px;
+  height: 195px;
+	z-index: 10;
+}
+    
+canvas {
+    position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 699px;
+  height: 195px;
+    touch-action: none;
 	z-index: 10;
 }
 
-#dd {
-    position: absolute;
-	left: 382px;
-	top: 482px;
-	width: 85px;
-	height: 81px;
-    color: #6e6e6e;
-	background: transparent;
-	font-family: "RobotoAlert";
-	font-size: 60px;
-    font-weight: bold;
-	text-align: center;
-	overflow: visible;
-	border: none;
-	outline: none;
-	z-index: 10;
+@keyframes flashLong {
+  0%,  100% {
+    opacity: 0;
+  }
+
+  15%, 50%, 95% {
+    opacity: 1;
+  }
 }
 
-#mm {
-    position: absolute;
-	left: 500px;
-	top: 482px;
-	width: 85px;
-	height: 81px;
-    color: #6e6e6e;
-	background: transparent;
-	font-family: "RobotoAlert";
-	font-size: 60px;
-    font-weight: bold;
-	text-align: center;
-	overflow: visible;
-	border: none;
-	outline: none;
-	z-index: 10;
-}
-
-#yy {
-    position: absolute;
-	left: 618px;
-	top: 482px;
-	width: 85px;
-	height: 81px;
-    color: #6e6e6e;
-	background: transparent;
-	font-family: "RobotoAlert";
-	font-size: 60px;
-    font-weight: bold;
-	text-align: center;
-	overflow: visible;
-	border: none;
-	outline: none;
-	z-index: 10;
+@keyframes scratchIt {
+  0% {
+  left: 239px;
+  top: 538px;
+  width: 52px;
+  height: 67px;
+  opacity: 1;
+  }
+  50% {
+  left: 523px;
+  top: 579px;
+  width: 52px;
+  height: 67px;
+  opacity: 1;
+  }
+  100% {
+  left: 805px;
+  top: 538px;
+  width: 52px;
+  height: 67px;
+  opacity: 1;
+  }
 }

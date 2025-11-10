@@ -1,7 +1,7 @@
+/* var arrSurveyQuestions = {
+   2: "What restores your life?"
+}; */
 
-var arrSurveyQuestions = {
-   2: "Birthdate:"
-};
 /*Code by android developers start here*/
 var startLoc = null;
 //var contentName = '152';
@@ -13,7 +13,7 @@ var currentContentNSlide ='';
 
 //custom slides changes begins here....
 
-//alert("+++++currentContentId+++++++"+currentContentId+"+++++++contentName+++++++"+contentName);
+//console.log("+++++currentContentId+++++++"+currentContentId+"+++++++contentName+++++++"+contentName);
 	if (typeof(localStorage.getItem("currentcustomslideflag"))!='undefined' &&  localStorage.getItem("currentcustomslideflag") =='true'){
 		var custcomslideid1=parseInt(localStorage.getItem("currentcontentcustomslideId"));
 		//step 2:
@@ -30,7 +30,6 @@ var currentContentNSlide ='';
 		localStorage.setItem("current",currentContentNSlide);
 		localStorage.setItem("currentslide",'1');
 	}
-
 checkClickThrough();
 
 document.getElementById("main_content").addEventListener("touchmove", touchHandler, false);
@@ -94,13 +93,15 @@ function touchHandler(e) {
 
 		$("#main_content").swipe({
 	   swipeLeft:function(event, direction, distance, duration, fingerCount) {
-		//step 4:-
+		  //step 4:-
 		console.log("swipeleft"+localStorage.getItem("currentslide"));
 		localStorage.setItem("previousslide",localStorage.getItem("currentslide"));
 		//step 4 ends here
+		
 		//alert("swipeleft");
 		//myconsole("swipeleft");
 		var page_id =  parseInt($("#wrapper").attr("rel"));
+		//alert("swipeleft"+page_id);
 		var last_page_id = $(".slides").length;
 		var slide_jumper_open = $(".reference").hasClass("active");
 		if(page_id == last_page_id+1)	{
@@ -111,10 +112,11 @@ function touchHandler(e) {
 	  },
 
 	  swipeRight:function(event, direction, distance, duration, fingerCount) {
-		//step 5:-
+		  //step 5:-
 		console.log("swiperight"+localStorage.getItem("currentslide"));
 		localStorage.setItem("previousslide",localStorage.getItem("currentslide"));
 		//step 5 ends here 
+		
 			//alert("swiperight");
 		//myconsole("swiperight");
 		var page_id =  parseInt($("#wrapper").attr("rel"));
@@ -135,12 +137,7 @@ function touchHandler(e) {
 	});
 
 
-
-
 });
-
-
-
 
 //step 6:-
 function toCaptureTime(page_id){
@@ -180,7 +177,7 @@ else{
 	
  } 
  
-	if(nextSlideNo <= 1){//number 3 is number of total slides present
+	if(nextSlideNo <= 5){//number 3 is number of total slides present
 	// alert(nextSlideNo);
 	var tempNext = localStorage.getItem(currentContentId+"_"+contentName+"_slideNo_"+nextSlideNo);
 
@@ -200,24 +197,22 @@ else{
 }
 //step ends..
 
-
 function go_nav(direction) {
-	
-
-				var page_id =  parseInt($("#wrapper").attr("rel"));
+var page_id =  parseInt($("#wrapper").attr("rel"));
+			
+		
 var flag=0;
-
-
 if(direction == 'b') {
 
-	
-			if(page_id >= 0){
-				page_id = page_id - 1;
-				if(page_id == 0){
-					flag=2;
-				}
-			}
 
+	if(page_id >= 0){
+		page_id = page_id - 1;
+		//alert(page_id);
+		//console.log(page_id);
+		if(page_id == 0){
+            flag=2;
+        }
+	}
 	 if(flag == 2){
         localStorage.setItem("gotoNextPrevBrand" ,2);//if one than next if 2 than prev
         //flag == 0;
@@ -233,11 +228,11 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe 
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe //pageswipe
+	
 		//window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
     }else{
         localStorage.setItem("gotoNextPrevBrand" ,0);
-		
 		var objectData={
 
          "gotoNextPrevBrand": localStorage.getItem("gotoNextPrevBrand"),
@@ -250,20 +245,18 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe 
-    }
-
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe //pageswipe
+	}
 	
 }else {
 	
-
-		if(page_id <= 1){
+	if(page_id <= 5){
 		page_id = page_id + 1;
 		//alert(page_id);
-		if(page_id == 2){
+		if(page_id == 6){
             flag=1;
         }
-	}	
+	}
 	    if(flag == 1){
         localStorage.setItem("gotoNextPrevBrand" ,1);//if one than next if 2 than prev
          flag == 0;
@@ -279,7 +272,8 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe 
+
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe //pageswipe
 		 //window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
     }else{
         localStorage.setItem("gotoNextPrevBrand" ,0);
@@ -295,18 +289,11 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe 
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe //pageswipe
+  
     }
 
-
 }
-
-
-//step 8:
-currentContentNSlide = currentContentId+"_"+contentName+"_"+page_id;
-//step 8 ends here
-localStorage.setItem("current",currentContentNSlide);
-localStorage.setItem("currentslide",page_id);
 
 $("#wrapper").attr("rel",page_id);
 
@@ -318,36 +305,30 @@ var pg_content = set_pg_content(page_id);
 }
 	//console.log("pg : "+page_id);
 	if(page_id==4){
-		$(".box2").click(function(event) {
-			open_page("",5)
-		});
-		$(".box3").click(function(event) {
-			open_page("",6)
-		});
 		
 	}
 	 checkClickThrough(page_id);
 }
 
 function set_pg_content(pg_id){
-
-	if (typeof(localStorage.getItem("previousslide"))!='undefined'){
-		//to checked previous slide has god end time...
-		var previousslideid=localStorage.getItem("previousslide");
-		toCaptureTime(previousslideid);
-		
-	}
-	toCaptureTime(pg_id);
-
-
-	//step 9 ends here..
-//alert("++++++++++set_pg_content++++++++++"+pg_id);
 $(".reference").removeClass("active");
 currentSlide();
 var selectedContentPath='';
 switch(pg_id){
 	case 1:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1"><img src="slide1/s1.jpg" width="1080" height="810" alt=""/></div><input type="text" class="dd" id="dd" placeholder="" maxlength="2"/><input type="text" class="mm" id="mm" placeholder="" maxlength="2"/><input type="text" class="yy" id="yy" placeholder="" maxlength="2"/><div class="dataAlert" id="dataAlert"></div><div class="submit" id="submit"><img src="slide1/s2.png" alt=""></div><script>runAnimation();</script>';
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide1/1.jpg" width="1080" height="810" alt=""></div>';
+	break;
+	case 2:
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1"><img src="slide2/s1.png" width="1080" height="810" alt=""></div><script>runAnimation();</script>';
+	break;
+	case 3:
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide3/1.jpg" width="1080" height="810" alt=""></div>';
+	break;
+	case 4:
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide4/1.jpg" width="1080" height="810" alt=""></div>';
+	break;
+	case 5:
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide5/1.jpg" width="1080" height="810" alt=""></div>';
 	break;
 }
 
@@ -362,45 +343,29 @@ function showDiv2() {
    document.getElementById('welcomeDiv2').style.display = "block";
 }
 
-
 function open_page(url,page_id){
-	
-	
-	    count3=2;
+	count3=2;
     count4=0;
 	if (typeof(localStorage.getItem("currentslide"))!='undefined'){
 		//to checked previous slide has god end time...
 		var slideid=localStorage.getItem("currentslide");
-		toCaptureTime(slideid);
-		
+		toCaptureTime(slideid);	
 	}
-
-	
 
 	// toCaptureTime(page_id);
 	 localStorage.setItem("currentslide",page_id);
 	 currentContentNSlide = currentContentId+"_"+contentName+"_"+page_id;
 	 localStorage.setItem("current",currentContentNSlide);
 	//step 10 ends here
-
 	 $("#wrapper").attr("rel",page_id);
 	 var content="";
 	 var pg_content = set_pg_content(page_id);
 
 	 	$("#main_content").html(pg_content);
 
-	 if(page_id==4){
-		$(".box2").click(function(event) {
-			open_page("",5)
-		});
-		$(".box3").click(function(event) {
-			open_page("",6)
-		});
-	 }
 	  checkClickThrough();
 	}
-
-	var count3=2,count4=0;
+var count3=2,count4=0;
 
 function open_page2(url,page_id,count){
     count1=0;
@@ -424,53 +389,29 @@ function open_page2(url,page_id,count){
 	$("#main_content").html(pg_content);
 	checkClickThrough();
 }
-	
-	
+
 	function checkClickThrough(page_id){
 	var currentslide=localStorage.getItem("currentslide");
 	//alert(currentslide);
 	document.getElementById("click_through").innerHTML='';
 
-		if(currentslide == 2){
-		document.getElementById("click_through").innerHTML='';  
-		$('#slide01_question01_choices01').delay(10).fadeIn();
-
-		$(document).on("click touchstart", "#slide01_question01_choices01 input[name]", function(){
-			if ($("input[name='checkB01']:checked").val()){
-				var test = $(this).val();
-				$(".submit_button,.slide01_next").fadeIn();		
-			}			
-		});
-
-		$(document).on("click", ".submit_button", function(){
-			$('.slide01_submit_popup_content').fadeIn();
-		});
-
-		$(document).on("click", ".slide01_submit_popup_close_btn_mask", function(){
-			$('.slide01_submit_popup_content').fadeOut();
-		});
+	if(page_id == 2){
+		document.getElementById("click_through").innerHTML='<div class="canvas-wrapper" ontouchstart="myFunc()"><canvas id="bottomCanvas" width="738" height="396"></canvas><canvas id="topCanvas" width="738" height="396"></canvas></div><div class="hand" ontouchstart="myFunc()"><img src="slide2/hand.png"></div><div class="goLeft" onclick="goLeft()"><img src="slide2/left.png"></div><div class="goRight" onclick="goRight()"><img src="slide2/right.png"></div><div class="blocker"></div>';
+		
+		$('.goLeft, .goRight, .slide_arrow, .box, .box_btn').css('display','none');
 	}
-	
+
 }
 
-
-function checkBtns(refNum){
+	function checkBtns(refNum){
 		switch(refNum){
 		case 1:
-		open_page('',2);
+		open_page('',1); //NA
 		break;
-		case 2:
-		open_page('',3);
-		break;
-		case 3:
-		open_page('',4);
-		break;
-		case 4:
-		open_page('',1);
-		break;
+		
 		}
 	}
-	
+
 	function currentSlide(){
 		var curr_id =  parseInt($("#wrapper").attr("rel"));
 		$(".slides").removeClass("active");
@@ -517,6 +458,8 @@ function currentTimeInDatabaseFormat(){//to get current time in dd-mm-yyyy hh:mm
 	return duration;
 }
 
+// new js
+
 $(document).ready(function(){
 	$('body').on('click','.touchbtn',function(){
 		$('.right_arrow').trigger( "click" );
@@ -529,61 +472,7 @@ $(document).ready(function(){
 })
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    var btn = document.getElementById('submit');
-	console.log(btn);
-    btn.addEventListener('click', () => {console.log("hahah");
-  savedata(1,1,2,1);
-  endTime1(2);
-  hidesubmitonclick();
-});
-  });
-function savedata(answer,type,questionNumber,page_id){
-    
-   
-	var dd = document.getElementById('dd').value;
-	var mm = document.getElementById('mm').value;
-	var yy = document.getElementById('yy').value;
-	//alert("sjvdjhsvd"+dd);
-            /* var result = "";
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    result += checkboxes[i].value + " " + " , ";
-                }
-            }
-			var varanswer = result.slice(0, result.lastIndexOf(",")); */
-			//alert(varanswer);
- 	/* if(questionNumber == 2){
-		var selectedAnswer1 = document.querySelector('input[name = "checkB01"]:checked').value;
-		var varanswer = selectedAnswer1;
-	} */
-	var varanswer = dd + "-" + mm + "-" + yy;
-	var question = arrSurveyQuestions[questionNumber];
-	var surveydata={
-		"question": question,
-        "answer": varanswer
-    };
-	alert(varanswer);
-	
-	var objectData={
-		"gotoNextPrevBrand": localStorage.getItem("gotoNextPrevBrand"),
-          "previousslide": localStorage.getItem("previousslide"),
-         "slideId": page_id,
-		 "data": `${JSON.stringify(surveydata)}`
-         };
-	  var params = {
-	  "query" : objectData,
-	  "type" : "additionalInfo",
-	  "callback" : "checkLastPgFn"
-	  };
-
-	window.messageHandler.postMessage(JSON.stringify(params));
-	//localStorage.setItem("surveyQuestion_"+currentContentId+"_"+contentName+"_"+questionNumber,question);
-	//localStorage.setItem("surveyAnswer_"+currentContentId+"_"+contentName+"_"+questionNumber,varanswer);
-	//toCaptureTime(2);
-    //document.getElementById('edit-count-checked-checkboxes').value=count;
-
-}
+/*--------------------- animation javascript -----------------------*/
 
 
 function closewindowslide(currentslide)
@@ -599,7 +488,186 @@ function endTime1(currentSlideNo){
 		localStorage.setItem(currentContentId+"_"+contentName+"_EndTime_"+currentSlideNo ,endTimeInDBFormat);
 
 }
+
 function hidesubmitonclick()
 {
-	$('.submit-btn').css("display","none");
+	$('.submit_button').css("display","none");
+	goRight();
+}
+
+function goRight() {
+	setTimeout(function(){
+		go_nav('f');
+	}, 2000);
+}
+
+function select1() {
+	$(".s1").css("display","block");
+	$(".s2,.s3,.s4,.s5,.s6,.s7").css("display","none");
+	$(".s1").addClass("flashIt");
+	$(".s2").removeClass("flashIt");
+	$(".s3").removeClass("flashIt");
+	$(".s4").removeClass("flashIt");
+	$(".s5").removeClass("flashIt");
+	$(".s6").removeClass("flashIt");
+	$(".s7").removeClass("flashIt");
+	$(".s8").removeClass("flashIt");
+	$(".submit_button").css("display","block");
+}
+
+function select2() {
+	$(".s2").css("display","block");
+	$(".s1,.s3,.s4,.s5,.s6,.s7").css("display","none");
+	$(".s1").removeClass("flashIt");
+	$(".s2").addClass("flashIt");
+	$(".s3").removeClass("flashIt");
+	$(".s4").removeClass("flashIt");
+	$(".s5").removeClass("flashIt");
+	$(".s6").removeClass("flashIt");
+	$(".s7").removeClass("flashIt");
+	$(".s8").removeClass("flashIt");
+	$(".submit_button").css("display","block");
+}
+
+function select3() {
+	$(".s3").css("display","block");
+	$(".s1,.s2,.s4,.s5,.s6,.s7").css("display","none");
+	$(".s1").removeClass("flashIt");
+	$(".s2").removeClass("flashIt");
+	$(".s3").addClass("flashIt");
+	$(".s4").removeClass("flashIt");
+	$(".s5").removeClass("flashIt");
+	$(".s6").removeClass("flashIt");
+	$(".s7").removeClass("flashIt");
+	$(".s8").removeClass("flashIt");
+	$(".submit_button").css("display","block");
+}
+
+function select4() {
+	$(".s4").css("display","block");
+	$(".s1,.s3,.s2,.s5,.s6,.s7").css("display","none");
+	$(".s1").removeClass("flashIt");
+	$(".s2").removeClass("flashIt");
+	$(".s3").removeClass("flashIt");
+	$(".s4").addClass("flashIt");
+	$(".s5").removeClass("flashIt");
+	$(".s6").removeClass("flashIt");
+	$(".s7").removeClass("flashIt");
+	$(".s8").removeClass("flashIt");
+	$(".submit_button").css("display","block");
+}
+
+function select5() {
+	$(".s5").css("display","block");
+	$(".s1,.s3,.s4,.s2,.s6,.s7").css("display","none");
+	$(".s1").removeClass("flashIt");
+	$(".s2").removeClass("flashIt");
+	$(".s3").removeClass("flashIt");
+	$(".s4").removeClass("flashIt");
+	$(".s5").addClass("flashIt");
+	$(".s6").removeClass("flashIt");
+	$(".s7").removeClass("flashIt");
+	$(".s8").removeClass("flashIt");
+	$(".submit_button").css("display","block");
+}
+
+function select6() {
+	$(".s6").css("display","block");
+	$(".s1,.s3,.s4,.s5,.s2,.s7").css("display","none");
+	$(".s1").removeClass("flashIt");
+	$(".s2").removeClass("flashIt");
+	$(".s3").removeClass("flashIt");
+	$(".s4").removeClass("flashIt");
+	$(".s5").removeClass("flashIt");
+	$(".s6").addClass("flashIt");
+	$(".s7").removeClass("flashIt");
+	$(".s8").removeClass("flashIt");
+	$(".submit_button").css("display","block");
+}
+
+function select7() {
+	$(".s7").css("display","block");
+	$(".s1,.s3,.s4,.s5,.s6,.s2").css("display","none");
+	$(".s1").removeClass("flashIt");
+	$(".s2").removeClass("flashIt");
+	$(".s3").removeClass("flashIt");
+	$(".s4").removeClass("flashIt");
+	$(".s5").removeClass("flashIt");
+	$(".s6").removeClass("flashIt");
+	$(".s7").addClass("flashIt");
+	$(".s8").removeClass("flashIt");
+	$(".submit_button").css("display","block");
+}
+
+function select8() {
+	$(".s1").removeClass("flashIt");
+	$(".s2").removeClass("flashIt");
+	$(".s3").removeClass("flashIt");
+	$(".s4").removeClass("flashIt");
+	$(".s5").removeClass("flashIt");
+	$(".s6").removeClass("flashIt");
+	$(".s7").removeClass("flashIt");
+	$(".s8").addClass("flashIt");
+	$(".submit_button").css("display","block");
+}
+
+function savedata(answer,type,questionNumber,page_id) {
+	$('#radio01').css("display","none");
+	$('#radio02').css("display","none");
+	$('#radio03').css("display","none");
+	$('#radio04').css("display","none");
+	$('#radio05').css("display","none");
+	$('#radio06').css("display","none");
+	$('#radio07').css("display","none");
+	$('#radio08').css("display","none");
+	$(".submit_button").css("display","none");
+	
+	
+	if(questionNumber == 2){
+		var selectedAnswer1 = document.querySelector('input[name = "checkB01"]:checked').value;
+		var varanswer = selectedAnswer1;
+	}
+	
+	var question = arrSurveyQuestions[questionNumber];
+	//localStorage.setItem("surveyQuestion_"+currentContentId+"_"+contentName+"_"+questionNumber,question);
+	//localStorage.setItem("surveyAnswer_"+currentContentId+"_"+contentName+"_"+questionNumber,varanswer);
+	//alert(question+varanswer);
+	
+	
+	var surveydata={
+		"question": question,
+        "answer": varanswer
+    };
+	
+	var objectData={
+		"gotoNextPrevBrand": localStorage.getItem("gotoNextPrevBrand"),
+          "previousslide": localStorage.getItem("previousslide"),
+         "slideId": page_id,
+		 "data": `${JSON.stringify(surveydata)}`
+         };
+	  var params = {
+	  "query" : objectData,
+	  "type" : "additionalInfo",
+	  "callback" : "checkLastPgFn"
+	  };
+
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe 
+}
+
+
+//-----------------Animate JS-----------------//
+
+function goLeft() {
+	go_nav('b');
+}
+
+function goRight() {
+	go_nav('f');
+}
+
+function myFunc() {
+	$(".hand").css("display","none");
+	setTimeout(function(){
+		go_nav('f');
+	}, 2000);
 }

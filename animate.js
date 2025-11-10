@@ -1,96 +1,96 @@
 function runAnimation() {
   window.requestAnimationFrame(function () {
 
-	// Force only numeric input in the textbox
-	document.getElementById("dd").addEventListener("input", function (d) {
-	this.value = this.value.replace(/\D/g, '');
-	});
-	
-	document.getElementById("mm").addEventListener("input", function (m) {
-	this.value = this.value.replace(/\D/g, '');
-	});
-	
-	document.getElementById("yy").addEventListener("input", function (y) {
-	this.value = this.value.replace(/\D/g, '');
-	});
-	
-	document.getElementById("submit").addEventListener("click", function() {
-		//alert("its less buddy");
-	let d = document.getElementById("dd").value.trim(),
-		m = document.getElementById("mm").value.trim(),
-		y = document.getElementById("yy").value.trim(),
-		t = document.getElementById("dataAlert");
-		
-	if (t.textContent = "", isNaN(d)) {
-		t.textContent = "Entered value is not a number. Please try again!";
-		return
-	}
-	if (t.textContent = "", isNaN(m)) {
-		t.textContent = "Entered value is not a number. Please try again!";
-		return
-	}
-	if (t.textContent = "", isNaN(y)) {
-		t.textContent = "Entered value is not a number. Please try again!";
-		return
-	}
-	
-	if (d.length < 2) {
-		t.textContent = "Please enter 2 digits for Day value";
-		return
-	}
-	
-	if (m.length < 2) {
-		t.textContent = "Please enter 2 digits for Month value";
-		return
-	}
-	
-	if (y.length < 2) {
-		t.textContent = "Please enter 2 digits for Year value";
-		return
-	}
-	
-	let dd = parseInt(d, 10);
+    const topCanvas = document.getElementById('topCanvas');
+    const bottomCanvas = document.getElementById('bottomCanvas');
+    const topCtx = topCanvas.getContext('2d');
+    const bottomCtx = bottomCanvas.getContext('2d');
+    const width = topCanvas.width;
+    const height = topCanvas.height;
 
-	if (dd > 31) {
-    t.textContent = "Day value cannot be greater than 31";
-    return;
-	}
-	
-	if (dd < 01) {
-    t.textContent = "Day value cannot be lower than 01";
-    return;
-	}
-	
-	let mm = parseInt(m, 10);
+    const topImage = new Image();
+    const bottomImage = new Image();
 
-	if (mm > 12) {
-    t.textContent = "Month value cannot be greater than 12";
-    return;
-	}
-	
-	if (mm < 01) {
-    t.textContent = "Month value cannot be lower than 01";
-    return;
-	}
-	
-	let yy = parseInt(y, 10);
+    topImage.src = 'slide2/top.png'; // Replace with your top image path
+    bottomImage.src = 'slide2/bottom.png'; // Replace with your bottom image path
 
-	if (yy > 25) {
-    t.textContent = "Year value cannot be greater than current year 2025";
-    return;
-	}
-	
-	if (yy < 01) {
-    t.textContent = "Year value cannot be lower than 01";
-    return;
-	}
-	
-	if ((d.length == 2) && (m.length == 2) && (y.length == 2) && (dd < 32) && (dd > 0) && (mm < 13) && (mm > 0) && (yy < 26) && (yy > 0)) {
-		document.getElementById("submit").style.display = "none";
-		return
-	}
-	
-	});
+    let isDrawing = false;
+    let revealed = false;
+
+    function getPosition(e) {
+      const rect = topCanvas.getBoundingClientRect();
+      if (e.touches) {
+        return {
+          x: e.touches[0].clientX - rect.left,
+          y: e.touches[0].clientY - rect.top
+        };
+      } else {
+        return {
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top
+        };
+      }
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getPosition(e);
+      topCtx.globalCompositeOperation = 'destination-out';
+      topCtx.beginPath();
+      topCtx.arc(pos.x, pos.y, 350, 0, Math.PI * 2);  //200 is the size of the amount of scratch
+      topCtx.fill();
+    }
+
+    function checkReveal() {
+      const imageData = topCtx.getImageData(0, 0, width, height);
+      let clearPixels = 0;
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        if (imageData.data[i + 3] === 0) {
+          clearPixels++;
+        }
+      }
+      const percent = clearPixels / (width * height);
+      if (percent > 0.95 && !revealed) {  //0.95 detects 95% of the pixels scratched and then triggers any event
+        revealed = true;
+        setTimeout(function(){
+			go_nav('f');
+		}, 2000);
+      }
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      draw(e);
+    }
+
+    function endDrawing() {
+      isDrawing = false;
+      checkReveal();
+    }
+
+    // Load both images
+    topImage.onload = () => {
+      topCtx.drawImage(topImage, 0, 0, width, height);
+    };
+    bottomImage.onload = () => {
+      bottomCtx.drawImage(bottomImage, 0, 0, width, height);
+    };
+
+    // Mouse events
+    topCanvas.addEventListener('mousedown', startDrawing);
+    topCanvas.addEventListener('mousemove', draw);
+    topCanvas.addEventListener('mouseup', endDrawing);
+    topCanvas.addEventListener('mouseleave', endDrawing);
+
+    // Touch events
+    topCanvas.addEventListener('touchstart', startDrawing, { passive: false });
+    topCanvas.addEventListener('touchmove', draw, { passive: false });
+    topCanvas.addEventListener('touchend', endDrawing);
 
   });
 }
+
+
+
+  
