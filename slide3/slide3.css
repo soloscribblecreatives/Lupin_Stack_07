@@ -24,10 +24,10 @@
 
 .s3 {
 	position: absolute;
-  left: 175px;
+  left: 122px;
   top: 277px;
-  width: 507px;
-  height: 434px;
+  width: 601px;
+  height: 432px;
 	animation: zoomIn 0.5s;
 	animation-delay: 0.5s;
 	animation-fill-mode: both;
