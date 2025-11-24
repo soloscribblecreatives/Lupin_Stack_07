@@ -1,4 +1,4 @@
-*{
+* {
 	margin: 0px;
 	padding: 0px;
 }
@@ -7,75 +7,6 @@
 	position: absolute;
 	width: 1080px;
 	height: 810px;
+	background-color: #000;
 	z-index: 1;
-}
-
-.s2 {
-	position: absolute;
-  left: 205px;
-  top: 22px;
-  width: 708px;
-  height: 541px;
-	animation: zoomIn 0.5s;
-	animation-delay: 0s;
-	animation-fill-mode: both;
-	transform-origin: top;
-	z-index: 3;
-}
-
-.s3 {
-	position: absolute;
-  left: 274px;
-  top: 420px;
-  width: 549px;
-  height: 58px;
-	animation: flashLongOff 2s infinite;
-	animation-delay: 0.5s;
-	animation-fill-mode: both;
-	z-index: 4;
-}
-
-.s4 {
-	position: absolute;
-  left: 228px;
-  top: 568px;
-  width: 223px;
-  height: 210px;
-	animation: zoomIn 0.5s;
-	animation-delay: 0.7s;
-	animation-fill-mode: both;
-	z-index: 5;
-}
-
-.s5 {
-	position: absolute;
-  left: 460px;
-  top: 633px;
-  width: 372px;
-  height: 80px;
-	animation: fadeInRight 0.5s;
-	animation-delay: 0.7s;
-	animation-fill-mode: both;
-	z-index: 5;
-}
-
-
-@keyframes flashLongOn {
-  0%, 10%, 40%, 60%, 90%, 100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes flashLongOff {
-  0%,  100% {
-    opacity: 0;
-  }
-
-  25%, 50%, 75% {
-    opacity: 1;
-  }
 }
