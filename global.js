@@ -135,7 +135,7 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 	
 		//window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
     }else{
@@ -152,16 +152,16 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 	}
 	
 }else {
 	
 
-	if(page_id <= 3){
+	if(page_id <= 1){
 		page_id = page_id + 1;
 		//alert(page_id);
-		if(page_id == 4){
+		if(page_id == 2){
             flag=1;
         }
 	}
@@ -181,7 +181,7 @@ if(direction == 'b') {
   };
 
 
-	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 		 //window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
     }else{
         localStorage.setItem("gotoNextPrevBrand" ,0);
@@ -197,7 +197,7 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
   
     }
 
@@ -251,13 +251,7 @@ currentSlide();
 var selectedContentPath='';
 switch(pg_id){
 	case 1:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1"><img src="slide1/s1.png" width="1080" height="810" alt=""/></div><div class="s2"><img src="slide1/s2.png"/></div><div class="s3"><img src="slide1/s3.png"/></div><div class="s4"><img src="slide1/s4.png"/></div><div class="s5"><img src="slide1/s5.png"/></div><div class="s6"><img src="slide1/s6.png"/></div><audio loop id="tring" src="slide1/tring.mp3" type="audio/mpeg"></audio><div class="button" onclick="hitOut()"></div>';
-	break;
-	case 2:
-	content='<link rel="stylesheet" type="text/css" href="slide2/slide2.css" media="screen"/><div class="s1"><video width="1080" height="810" controls autoplay><source src="slide2/s1.mp4" type="video/mp4"></video></div>';
-	break;
-	case 3:
-	content='<link rel="stylesheet" type="text/css" href="slide3/slide3.css" media="screen"/><div class="s1"><img src="slide3/s1.png" width="1080" height="810" alt=""/></div><div class="s2"><img src="slide3/s2.png"/></div><div class="s3"><img src="slide3/s3.png"/></div><div class="s4"><img src="slide3/s4.png"/></div><div class="s5"><img src="slide3/s5.png"/></div><div class="s6"><img src="slide3/s6.png"/></div><div class="s7"><img src="slide3/s7.png"/></div><div class="s8"><img src="slide3/s8.png"/></div><div class="s9"><img src="slide3/s9.png"/></div><div class="button1" onclick="hitOut1()"></div><div class="button2" onclick="hitOut2()"></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"></div><div class="button1" onclick="playVid1()"></div><div class="video1"><video autoplay preload="auto" onplay="myFunction()" poster="slide1/Poster.png" id="startVideo" width="1080" height="810"><source src="slide1/Part1.mp4" type="video/mp4"></video></div><div class="button2" onclick="playVid2()"></div><div class="video2"><video id="endVideo" width="1080" height="810"><source src="slide1/Part2.mp4" type="video/mp4"></video></div>';
 	break;
 }
 
@@ -298,7 +292,7 @@ function open_page(url,page_id){
   "callback" : "checkLastPgFn"
   };
 
-	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 	
 	 $("#wrapper").attr("rel",page_id);
 	 var content="";
@@ -411,36 +405,25 @@ $(document).ready(function(){
 	})
 })
 
-/*--------------------- animation javascript -----------------------*/
+/*--------------------------Javascript Animation-----------------------------*/
 
-function hitOut() {
-	$('.button').css("display","none");
-	document.getElementById("tring").play();
-	$('.s2').addClass("tada");
-	$('.s3').addClass("wobble");
-	$('.s4').css("display","block");
-	$('.s4').addClass("zoomIn");
-	setTimeout(function(){
-		$('.s5').css("display","block");
-	}, 1000);
-	$('.s5').addClass("jello");
-	$('.s6').css("display","block");
-	$('.s6').addClass("fadeInUp");
+function playVid1() {
+	document.getElementById("startVideo").play();
 }
 
-function hitOut1() {
+function myFunction() {
 	$('.button1').css("display","none");
-	$('.button2').css("display","block");
-	$('.s2').css("display","block");
-	$('.s3').css("display","block");
-}
+	setTimeout(function () {
+		$('.button2').css("display","block");
+	}, 6000);
+};
 
-function hitOut2() {
+function playVid2() {
 	$('.button2').css("display","none");
-	$('.s4').css("display","block");
-	$('.s5').css("display","block");
-	$('.s6').css("display","block");
-	$('.s7').css("display","block");
-	$('.s8').css("display","block");
-	$('.s9').css("display","block");
-}
+	$(".video1").css("display","none");
+	var vid = document.getElementById("startVideo");
+	vid.pause();
+	vid.currentTime = 0;
+	$(".video2").css("display","block");
+	document.getElementById("endVideo").play();
+};

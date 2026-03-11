@@ -1,98 +1,45 @@
-*{
+* {
 	margin: 0px;
 	padding: 0px;
 }
 
-.button {
-	position: absolute;
-	width: 1080px;
-	height: 810px;
-	z-index: 20;
-}
-
-.s1 {
+.background {
 	position: absolute;
 	width: 1080px;
 	height: 810px;
 	z-index: 1;
 }
 
-.s2 {
+.video1 {
 	position: absolute;
-  left: 473px;
-  top: 76px;
-  width: 554px;
-  height: 323px;
-	z-index: 5;
+	width: 1080px;
+	height: 670px;
+	z-index:5;
 }
 
-.tada {
-	animation: tada 1s infinite;
-	animation-delay: 0s;
-	animation-fill-mode: both;
-	transform-origin: bottom;
-}
-
-.s3 {
-    position: absolute;
-  left: 628px;
-  top: 224px;
-  width: 249px;
-  height: 507px;
-	z-index: 10;
-}
-
-.wobble {
-	animation: wobble 2s infinite;
-	animation-delay: 0s;
-	animation-fill-mode: both;
-	transform-origin: bottom;
-}
-
-.s4 {
+.button1 {
 	position: absolute;
-  left: 112px;
-  top: 193px;
-  width: 326px;
-  height: 412px;
-  display: none;
-	z-index: 5;
+    left: 0px;
+    top: 0px;
+    width: 1080px;
+	height: 810px;
+	z-index: 999;
 }
 
-.zoomIn {
-	animation: zoomIn 0.5s;
-	animation-delay: 0s;
-	animation-fill-mode: both;
-}
-
-.s5 {
+.button2 {
 	position: absolute;
-  left: 154px;
-  top: 329px;
-  width: 241px;
-  height: 149px;
-  display: none;
-	z-index: 5;
+	left: 0px;
+	top: 339px;
+	width: 165px;
+	height: 217px;
+	display: none;
+	z-index: 999;
 }
 
-.jello {
-	animation: jello 0.5s 3;
-	animation-delay: 0s;
-	animation-fill-mode: both;
-}
-
-.s6 {
+.video2 {
 	position: absolute;
-  left: 60px;
-  top: 648px;
-  width: 428px;
-  height: 50px;
-  display: none;
-	z-index: 5;
-}
-
-.fadeInUp {
-	animation: fadeInUp 0.5s;
-	animation-delay: 2s;
-	animation-fill-mode: both;
+	width: 1080px;
+	height: 670px;
+	display: none;
+	z-index:10;
 }
