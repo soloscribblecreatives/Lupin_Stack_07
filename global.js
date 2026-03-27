@@ -251,7 +251,7 @@ currentSlide();
 var selectedContentPath='';
 switch(pg_id){
 	case 1:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"></div><div class="button1" onclick="playVid1()"></div><div class="video1"><video autoplay preload="auto" onplay="myFunction()" poster="slide1/Poster.png" id="startVideo" width="1080" height="810"><source src="slide1/Part1.mp4" type="video/mp4"></video></div><div class="button2" onclick="playVid2()"></div><div class="video2"><video id="endVideo" width="1080" height="810"><source src="slide1/Part2.mp4" type="video/mp4"></video></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide1/Part1.png" width="1080" height="810" alt=""></div><div class="button2" onclick="playVid2()"></div><div class="video2"><video id="endVideo" width="1080" height="810"><source src="slide1/Part2.mp4" type="video/mp4"></video></div>';
 	break;
 }
 
@@ -407,23 +407,8 @@ $(document).ready(function(){
 
 /*--------------------------Javascript Animation-----------------------------*/
 
-function playVid1() {
-	document.getElementById("startVideo").play();
-}
-
-function myFunction() {
-	$('.button1').css("display","none");
-	setTimeout(function () {
-		$('.button2').css("display","block");
-	}, 6000);
-};
-
 function playVid2() {
 	$('.button2').css("display","none");
-	$(".video1").css("display","none");
-	var vid = document.getElementById("startVideo");
-	vid.pause();
-	vid.currentTime = 0;
 	$(".video2").css("display","block");
 	document.getElementById("endVideo").play();
 };
