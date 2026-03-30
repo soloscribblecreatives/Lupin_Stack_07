@@ -135,7 +135,7 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 	
 		//window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
     }else{
@@ -152,16 +152,16 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 	}
 	
 }else {
 	
 
-	if(page_id <= 1){
+	if(page_id <= 2){
 		page_id = page_id + 1;
 		//alert(page_id);
-		if(page_id == 2){
+		if(page_id == 3){
             flag=1;
         }
 	}
@@ -181,7 +181,7 @@ if(direction == 'b') {
   };
 
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 		 //window.location = "js-call:" + "1" + ":" + encodeURIComponent(JSON.stringify({query:'NODATA', type:'brandNavigation', callback:'checkLastPgFn'}));
     }else{
         localStorage.setItem("gotoNextPrevBrand" ,0);
@@ -197,7 +197,7 @@ if(direction == 'b') {
   "callback" : "checkLastPgFn"
   };
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
   
     }
 
@@ -253,6 +253,9 @@ switch(pg_id){
 	case 1:
 	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide1/Part1.png" width="1080" height="810" alt=""></div><div class="button2" onclick="playVid2()"></div><div class="video2"><video id="endVideo" width="1080" height="810"><source src="slide1/Part2.mp4" type="video/mp4"></video></div>';
 	break;
+	case 2:
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide2/1.jpg" width="1080" height="810" alt=""></div>';
+	break;
 }
 
 return content;
@@ -292,7 +295,7 @@ function open_page(url,page_id){
   "callback" : "checkLastPgFn"
   };
 
-	window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
+	//window.messageHandler.postMessage(JSON.stringify(params)); //pageswipe
 	
 	 $("#wrapper").attr("rel",page_id);
 	 var content="";
