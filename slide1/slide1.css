@@ -1,44 +1,33 @@
-* {
+*{
 	margin: 0px;
 	padding: 0px;
 }
 
-.background {
+.s1 {
 	position: absolute;
-	width: 1080px;
-	height: 810px;
+	width: 1024px;
+	height: 768px;
 	z-index: 1;
 }
 
-.video1 {
-	position: absolute;
-	width: 1080px;
-	height: 670px;
-	z-index:5;
+.hit {
+  position: absolute;
+  left: 569px;
+  top: 354px;
+  width: 200px;
+  height: 247px;
+  z-index: 10;
 }
 
-.button1 {
+.s2 {
 	position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 1080px;
-	height: 810px;
-	z-index: 999;
-}
-
-.button2 {
-	position: absolute;
-	left: 0px;
-	top: 339px;
-	width: 165px;
-	height: 217px;
-	z-index: 999;
-}
-
-.video2 {
-	position: absolute;
-	width: 1080px;
-	height: 670px;
+  left: 550px;
+  top: 318px;
+  width: 345px;
+  height: 335px;
+	animation: fadeIn 1s;
+	animation-delay: 0.2s;
+	animation-fill-mode: both;
 	display: none;
-	z-index:10;
+	z-index: 5;
 }

@@ -158,10 +158,10 @@ if(direction == 'b') {
 }else {
 	
 
-	if(page_id <= 2){
+	if(page_id <= 3){
 		page_id = page_id + 1;
 		//alert(page_id);
-		if(page_id == 3){
+		if(page_id == 4){
             flag=1;
         }
 	}
@@ -251,10 +251,13 @@ currentSlide();
 var selectedContentPath='';
 switch(pg_id){
 	case 1:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide1/Part1.png" width="1080" height="810" alt=""></div><div class="button2" onclick="playVid2()"></div><div class="video2"><video id="endVideo" width="1080" height="810"><source src="slide1/Part2.mp4" type="video/mp4"></video></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="s1"><img src="slide1/s1.png" width="1080" height="810" alt=""/></div><div class="s2"><img src="slide1/s2.png"/></div><div class="hit" onclick="hit()"></div>';
 	break;
 	case 2:
-	content='<link rel="stylesheet" type="text/css" href="slide1/slide1.css" media="screen"/><div class="background"><img src="slide2/1.jpg" width="1080" height="810" alt=""></div>';
+	content='<link rel="stylesheet" type="text/css" href="slide2/slide2.css" media="screen"/><div class="s1"><img src="slide2/s1.png" width="1080" height="810" alt=""/></div><div class="s2"><img src="slide2/s2.gif" width="203"/></div>';
+	break;
+	case 3:
+	content='<link rel="stylesheet" type="text/css" href="slide3/slide3.css" media="screen"/><div class="s1"><img src="slide3/s1.png" width="1080" height="810" alt=""/></div><div class="s2"><img src="slide2/s2.gif" width="203"/></div>';
 	break;
 }
 
@@ -408,10 +411,9 @@ $(document).ready(function(){
 	})
 })
 
-/*--------------------------Javascript Animation-----------------------------*/
+/*--------------------- animation javascript -----------------------*/
 
-function playVid2() {
-	$('.button2').css("display","none");
-	$(".video2").css("display","block");
-	document.getElementById("endVideo").play();
-};
+function hit() {
+	$('.s2').css("display","block");
+	$('.hit').css("display","none");
+}
