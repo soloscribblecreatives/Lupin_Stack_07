@@ -1,33 +1,89 @@
-*{
-	margin: 0px;
-	padding: 0px;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-.s1 {
-	position: absolute;
-	width: 1024px;
-	height: 768px;
-	z-index: 1;
+[class^="s"] img {
+  width: 100%;
 }
 
-.hit {
+[class^="hit"] img {
+  width: 100%;
+}
+
+.s1,
+.s1 img {
   position: absolute;
-  left: 569px;
-  top: 354px;
-  width: 200px;
-  height: 247px;
-  z-index: 10;
+  left: 0px;
+  top: 0px;
+  width: 1080px;
+  height: 810px;
+  z-index: 1;
 }
 
 .s2 {
 	position: absolute;
-  left: 550px;
-  top: 318px;
-  width: 345px;
-  height: 335px;
-	animation: fadeIn 1s;
-	animation-delay: 0.2s;
+  left: 305px;
+  top: 381px;
+  width: 162px;
+  height: 148px;
+	z-index: 95;
+}
+
+.s3 {
+	position: absolute;
+  left: 708px;
+  top: 628px;
+  width: 162px;
+  height: 148px;
+	z-index: 95;
+}
+
+.flash {
+	animation: flashLongOff 2s infinite;
+	animation-delay: 0s;
 	animation-fill-mode: both;
-	display: none;
-	z-index: 5;
+}
+
+.unlock {
+	animation: unlock 1s ease-in;
+	animation-delay: 0s;
+	animation-fill-mode: both;
+}
+
+/* ---------------- Custom keyframes ---------------- */
+
+@keyframes flashLongOff {
+  0% {
+    opacity: 0;
+  }
+  
+  3%,
+  10%,
+  40%,
+  60%,
+  90%,
+  97%  {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes unlock {
+  0% {
+  left: 305px;
+  top: 381px;
+  width: 162px;
+  height: 148px;
+  }
+
+  100% {
+  left: 708px;
+  top: 628px;
+  width: 162px;
+  height: 148px;
+  }
 }
